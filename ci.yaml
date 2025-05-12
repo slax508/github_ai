@@ -1,0 +1,35 @@
+name: ci
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: install nodejs  
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16'
+        
+
+      - name: Install dependencies
+        run: |
+          npm install
+          npm install -g typescript
+          npm install -g ts-node
+          npm install -g ts-jest
+          npm install -g jest
+          npm install -g @types/jest
+          npm install -g @typescript-eslint/parser
+          npm install -g @typescript-eslint/eslint-plugin
+          npm install -g eslint
+          npm install -g eslint-config-prettier
+          npm install -g eslint-plugin-import
+          npm install -g eslint-plugin-react
+          npm install -g eslint-plugin-react-hooks
